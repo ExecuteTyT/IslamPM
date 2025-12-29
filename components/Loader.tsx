@@ -127,18 +127,18 @@ const Loader: React.FC = () => {
           {/* Status Indicators */}
           <div className="flex items-center justify-center gap-6 text-xs font-mono text-gray-600">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
-              <span>SYSTEM</span>
+              <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${progress >= 20 ? 'bg-neon-green animate-pulse' : 'bg-gray-700'}`} />
+              <span className={progress >= 20 ? 'text-gray-400' : ''}>SYSTEM</span>
             </div>
             <div className="w-px h-4 bg-gray-800" />
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-neon-cyan animate-pulse" style={{ animationDelay: '0.5s' }} />
-              <span>NETWORK</span>
+              <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${progress >= 60 ? 'bg-neon-cyan animate-pulse' : 'bg-gray-700'}`} />
+              <span className={progress >= 60 ? 'text-gray-400' : ''}>NETWORK</span>
             </div>
             <div className="w-px h-4 bg-gray-800" />
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-white/50 animate-pulse" style={{ animationDelay: '1s' }} />
-              <span>READY</span>
+              <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${progress >= 100 ? 'bg-neon-green animate-pulse' : 'bg-gray-700'}`} />
+              <span className={progress >= 100 ? 'text-gray-400' : ''}>READY</span>
             </div>
           </div>
         </div>
