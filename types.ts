@@ -62,6 +62,8 @@ export interface ContentProvider {
     bio: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    resumeEN?: string;
+    resumeRU?: string;
   };
   metrics: {
     title: string;

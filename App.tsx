@@ -21,7 +21,7 @@ const App: React.FC = () => {
       <Navbar lang={lang} setLang={setLang} content={content.nav} />
       
       <main>
-        <Hero content={content.hero} />
+        <Hero content={content.hero} lang={lang} />
         <BentoGrid content={content.metrics} />
         <TechRadar content={content.skills} />
         <Projects content={content.projects} />

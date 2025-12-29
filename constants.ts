@@ -17,7 +17,9 @@ export const CONTENT_EN: ContentProvider = {
     role: ["IT Project Manager", "Product Manager", "AI Integrator"],
     bio: "Turning chaos into structure. Managing complex Web/Mobile product development with AI & Fintech integration.",
     ctaPrimary: "View Projects",
-    ctaSecondary: "Download CV"
+    ctaSecondary: "Download CV",
+    resumeEN: "/Sabirzyanov_Islam_Resume_EN.pdf",
+    resumeRU: "/Sabirzyanov_Islam_Resume_RU.pdf"
   },
   metrics: {
     title: "SYSTEM METRICS",
@@ -293,7 +295,9 @@ export const CONTENT_RU: ContentProvider = {
     role: ["IT Project Manager", "Product Manager", "AI Интегратор"],
     bio: "Превращаю хаос в структуру. Управляю разработкой сложных Web/Mobile продуктов с интеграцией AI и Fintech.",
     ctaPrimary: "Смотреть проекты",
-    ctaSecondary: "Скачать CV"
+    ctaSecondary: "Скачать CV",
+    resumeEN: "/Sabirzyanov_Islam_Resume_EN.pdf",
+    resumeRU: "/Sabirzyanov_Islam_Resume_RU.pdf"
   },
   metrics: {
     title: "СИСТЕМНЫЕ МЕТРИКИ",
@@ -311,7 +315,7 @@ export const CONTENT_RU: ContentProvider = {
     management: [
       { name: "Agile / Scrum / Kanban", level: 95 },
       { name: "Управление рисками", level: 85 },
-      { name: "Release Management", level: 90 },
+      { name: "Управление релизами", level: 90 },
       { name: "Управление стейкхолдерами", level: 92 },
       { name: "Unit-экономика", level: 80 }
     ],

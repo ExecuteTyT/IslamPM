@@ -2,15 +2,40 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { Download, ChevronRight } from 'lucide-react';
 import { METADATA } from '../constants';
-import { ContentProvider } from '../types';
+import { ContentProvider, Language } from '../types';
 
 interface HeroProps {
   content: ContentProvider['hero'];
+  lang: Language;
 }
 
-const Hero: React.FC<HeroProps> = ({ content }) => {
+const Hero: React.FC<HeroProps> = ({ content, lang }) => {
   const d3Container = useRef<SVGSVGElement>(null);
   const [roleIndex, setRoleIndex] = useState(0);
+
+  const handleDownloadCV = () => {
+    // Download both resume files
+    const resumeEN = content.resumeEN || '/Sabirzyanov_Islam_Resume_EN.pdf';
+    const resumeRU = content.resumeRU || '/Sabirzyanov_Islam_Resume_RU.pdf';
+    
+    // Download English version
+    const linkEN = document.createElement('a');
+    linkEN.href = resumeEN;
+    linkEN.download = 'Sabirzyanov_Islam_Resume_EN.pdf';
+    document.body.appendChild(linkEN);
+    linkEN.click();
+    document.body.removeChild(linkEN);
+    
+    // Download Russian version with a slight delay
+    setTimeout(() => {
+      const linkRU = document.createElement('a');
+      linkRU.href = resumeRU;
+      linkRU.download = 'Sabirzyanov_Islam_Resume_RU.pdf';
+      document.body.appendChild(linkRU);
+      linkRU.click();
+      document.body.removeChild(linkRU);
+    }, 300);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -157,7 +182,10 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
               {content.ctaPrimary}
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-3 border border-white/20 text-white font-medium rounded hover:border-white transition-colors flex items-center justify-center gap-2">
+            <button 
+              onClick={handleDownloadCV}
+              className="px-8 py-3 border border-white/20 text-white font-medium rounded hover:border-white transition-colors flex items-center justify-center gap-2"
+            >
               {content.ctaSecondary}
               <Download size={18} />
             </button>
