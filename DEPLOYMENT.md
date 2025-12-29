@@ -42,14 +42,23 @@ server {
     root /var/www/islam-pm.dev;
     index index.html;
 
+    # Block search engine indexing
+    add_header X-Robots-Tag "noindex, nofollow, noarchive, nosnippet" always;
+
     location / {
         try_files $uri $uri/ /index.html;
+    }
+
+    # robots.txt
+    location = /robots.txt {
+        add_header Content-Type text/plain;
     }
 
     # Cache static files
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|pdf)$ {
         expires 1y;
         add_header Cache-Control "public, immutable";
+        add_header X-Robots-Tag "noindex, nofollow" always;
     }
 
     # Gzip compression
